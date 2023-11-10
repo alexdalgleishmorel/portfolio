@@ -1,6 +1,76 @@
+$img-size: 100px;
+$media-padding-size: 20px;
+$media-icon-size: ($img-size/2) - $media-padding-size;
+
 .content {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.main-container {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.media-container {
+    display: flex;
+    flex-direction: row;
+
+    img {
+        border-radius: 10px;
+        width: $img-size;
+        height: $img-size;
+    }
+
+    .icon {
+        border-radius: 5px;
+        font-size: $media-icon-size;
+        cursor: pointer;
+    }
+
+    .icon:hover {
+        color: #3880FF;
+    }
+
+    .profile-icon-padding {
+        padding: 50px;
+    }
+
+    .icon-padding {
+        padding: $media-padding-size;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .column {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.name {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.role {
+    font-size: 1.5rem;
+}
+
+.name-role-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.spacer {
+    padding: 10px;
 }
