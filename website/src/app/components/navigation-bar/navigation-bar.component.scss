@@ -3,29 +3,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    padding-bottom: 5%;
 }
 
 .option {
     cursor: pointer;
 
     @media screen and (max-width: 550px) {
-        font-size: 0.8rem;
+        font-size: 1.0rem;
     }
 
     @media screen and (max-width: 450px) {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 
     @media screen and (max-width: 350px) {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
     }
 }
 
-.option:hover {
-    font-weight: bold;
-}
-
 .option.selected {
-    font-weight: bold;
     color: #3880FF;
 }

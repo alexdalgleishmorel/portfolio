@@ -1,5 +1,10 @@
 <ion-content [scrollY]="false">
   <div class="content">
-    <app-navigation-bar></app-navigation-bar>
+    <app-navigation-bar [(selectedNavOption)]="selectedNavOption"></app-navigation-bar>
+    <ion-content>
+      <app-about *ngIf="isAboutSelected()"></app-about>
+      <app-experience *ngIf="isExperienceSelected()"></app-experience>
+      <app-projects *ngIf="isProjectsSelected()"></app-projects>
+    </ion-content>
   </div>
 </ion-content>

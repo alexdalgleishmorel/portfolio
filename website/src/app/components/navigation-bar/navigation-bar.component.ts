@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NavOption } from '../content/content.component';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -10,7 +11,8 @@ export class NavigationBarComponent implements OnInit {
   public navOptions: NavOption[] = [
     NavOption.ABOUT, NavOption.EXPERIENCE, NavOption.PROJECTS
   ];
-  public selectedNavOption: NavOption = NavOption.ABOUT;
+  @Input() public selectedNavOption: NavOption = NavOption.ABOUT;
+  @Output() public selectedNavOptionChange = new EventEmitter<NavOption>;
 
   constructor() { }
 
@@ -22,15 +24,10 @@ export class NavigationBarComponent implements OnInit {
 
   public setSelectedNavOption(option: NavOption) {
     this.selectedNavOption = option;
+    this.selectedNavOptionChange.emit(option);
   }
 
   public isNavOptionSelected(option: NavOption): boolean {
     return this.selectedNavOption === option;
   }
-}
-
-export enum NavOption {
-  ABOUT = 'ABOUT',
-  EXPERIENCE = 'EXPERIENCE',
-  PROJECTS = 'PROJECTS'
 }

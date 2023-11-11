@@ -14,6 +14,10 @@
 .intro {
     width: 100%;
     height: 100%;
+
+    @media screen and (max-width: $min-landscape-width) {
+        height: 50%;
+    }
 }
 
 .content {

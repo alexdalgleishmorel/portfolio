@@ -8,6 +8,9 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { IntroductionComponent } from '../components/introduction/introduction.component';
 import { ContentComponent } from '../components/content/content.component';
 import { NavigationBarComponent } from '../components/navigation-bar/navigation-bar.component';
+import { AboutComponent } from '../components/about/about.component';
+import { ExperienceComponent } from '../components/experience/experience.component';
+import { ProjectsComponent } from '../components/projects/projects.component';
 
 @NgModule({
   imports: [
@@ -17,10 +20,13 @@ import { NavigationBarComponent } from '../components/navigation-bar/navigation-
     HomePageRoutingModule
   ],
   declarations: [
+    AboutComponent,
     ContentComponent,
+    ExperienceComponent,
     HomePage,
     IntroductionComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    ProjectsComponent
   ]
 })
 export class HomePageModule {}

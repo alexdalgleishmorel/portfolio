@@ -1,16 +1,23 @@
 @import '../../../global.scss';
 
+$content-vertical-padding: 5%;
+
+$content-horizontal-padding-landscape: 20%;
+$content-horizontal-padding-mobile: 5%;
+
 .content {
     width: 100%;
     height: 100%;
-    padding-top: 20%;
-    padding-right: 20%;
+    padding-top: $content-vertical-padding;
+    padding-bottom: $content-vertical-padding;
+    padding-right: $content-horizontal-padding-landscape;
     display: flex;
     flex-direction: column;
 
     @media screen and (max-width: $min-landscape-width) {
         padding-top: 0%;
-        padding-left: 20%;
-        padding-bottom: 10%;
+        padding-left: $content-horizontal-padding-mobile;
+        padding-right: $content-horizontal-padding-mobile;
+        padding-bottom: $content-vertical-padding;
     }
 }
