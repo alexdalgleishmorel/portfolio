@@ -7,6 +7,18 @@
 
 .option {
     cursor: pointer;
+
+    @media screen and (max-width: 550px) {
+        font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 450px) {
+        font-size: 0.6rem;
+    }
+
+    @media screen and (max-width: 350px) {
+        font-size: 0.5rem;
+    }
 }
 
 .option:hover {

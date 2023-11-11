@@ -1,5 +1,10 @@
 <div class="content">
-  <ion-text class="option selected">ABOUT</ion-text>
-  <ion-text class="option">EXPERIENCE</ion-text>
-  <ion-text class="option">PROJECTS</ion-text>
+  <ion-text 
+    class="option" 
+    *ngFor="let option of navOptions"
+    [ngClass]="{'selected': isNavOptionSelected(option)}"
+    (click)="setSelectedNavOption(option)"
+  >
+    {{option}}
+  </ion-text>
 </div>
