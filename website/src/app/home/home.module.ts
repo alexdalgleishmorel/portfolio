@@ -12,6 +12,7 @@ import { AboutComponent } from '../components/about/about.component';
 import { ExperienceComponent } from '../components/experience/experience.component';
 import { ProjectsComponent } from '../components/projects/projects.component';
 import { ExperienceBlockComponent } from '../components/experience/experience-block/experience-block.component';
+import { ProjectBlockComponent } from '../components/projects/projects-block/project-block.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { ExperienceBlockComponent } from '../components/experience/experience-bl
     HomePage,
     IntroductionComponent,
     NavigationBarComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectBlockComponent
   ]
 })
 export class HomePageModule {}

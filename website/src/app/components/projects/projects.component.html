@@ -1,1 +1,7 @@
-<div class="content"></div>
+<div class="content">
+  <div class="spacer"></div>
+  <div *ngFor="let project of projects">
+    <app-project-block [project]="project"></app-project-block>
+    <div class="spacer"></div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="content">
+  <ion-text class="title">{{project.title}}</ion-text>
+  <div class="spacer"></div>
+  <ion-text color="medium">{{project.description}}</ion-text>
+  <div class="small-spacer"></div>
+  <div class="row-container">
+    <div class="attribute-container" *ngFor="let attribute of project.attributes">
+      <ion-chip class="attribute" color="success">{{attribute}}</ion-chip>
+    </div>
+  </div>
+</div>

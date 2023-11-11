@@ -1,0 +1,41 @@
+.attribute {
+    margin: 0;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+
+    border: 1px solid #3880FF;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.spacer {
+    padding: 10px;
+}
+
+.small-spacer {
+    padding: 5px;
+}
+
+.attribute-container {
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.time-range {
+    font-weight: bold;
+}
+
+.title {
+    color: #3880FF;
+}
