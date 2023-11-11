@@ -11,6 +11,7 @@ import { NavigationBarComponent } from '../components/navigation-bar/navigation-
 import { AboutComponent } from '../components/about/about.component';
 import { ExperienceComponent } from '../components/experience/experience.component';
 import { ProjectsComponent } from '../components/projects/projects.component';
+import { ExperienceBlockComponent } from '../components/experience/experience-block/experience-block.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { ProjectsComponent } from '../components/projects/projects.component';
     AboutComponent,
     ContentComponent,
     ExperienceComponent,
+    ExperienceBlockComponent,
     HomePage,
     IntroductionComponent,
     NavigationBarComponent,

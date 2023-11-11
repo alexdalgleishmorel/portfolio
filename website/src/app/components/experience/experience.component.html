@@ -1,1 +1,7 @@
-<div class="content"></div>
+<div class="content">
+  <div class="spacer"></div>
+  <div *ngFor="let experience of experiences">
+    <app-experience-block [experience]="experience"></app-experience-block>
+    <div class="spacer"></div>
+  </div>
+</div>

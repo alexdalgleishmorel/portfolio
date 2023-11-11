@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
   
-  public selectedNavOption: NavOption = NavOption.ABOUT;
+  public selectedNavOption: NavOption = NavOption.EXPERIENCE;
 
   constructor() { }
 
