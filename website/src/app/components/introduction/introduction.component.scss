@@ -1,3 +1,5 @@
+@import '../../../global.scss';
+
 $img-size: 100px;
 $media-padding-size: 20px;
 $media-icon-size: calc($img-size/2) - $media-padding-size;
@@ -17,6 +19,10 @@ $role-label-ratio: 0.60;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media screen and (max-width: $min-landscape-width) {
+        width: 90%;
+    }
 }
 
 .media-container {
@@ -74,24 +80,16 @@ $role-label-ratio: 0.60;
         font-size: 2.0rem;
     }
 
-    @media screen and (min-width: 595px) and (max-width: 1060px) {
-        font-size: 2.25rem;
-    }
-
-    @media screen and (min-width: 530px) and (max-width: 595px) {
-        font-size: 2.0rem;
-    }
-
-    @media screen and (min-width: 465px) and (max-width: 530px) {
-        font-size: 1.75rem;
+    @media screen and (min-width: 465px) and (max-width: 1060px) {
+        font-size: 2.5rem;
     }
 
     @media screen and (min-width: 400px) and (max-width: 465px) {
-        font-size: 1.5rem;
+        font-size: 2.25rem;
     }
 
     @media screen and (max-width: 400px) {
-        font-size: 1.25rem;
+        font-size: 2.0rem;
     }
 }
 
@@ -108,24 +106,16 @@ $role-label-ratio: 0.60;
         font-size: calc($role-label-ratio*2.0rem);
     }
 
-    @media screen and (min-width: 595px) and (max-width: 1060px) {
-        font-size: calc($role-label-ratio*2.25rem);
-    }
-
-    @media screen and (min-width: 530px) and (max-width: 595px) {
-        font-size: calc($role-label-ratio*2.0rem);
-    }
-
-    @media screen and (min-width: 465px) and (max-width: 530px) {
-        font-size: calc($role-label-ratio*1.75rem);
+    @media screen and (min-width: 465px) and (max-width: 1060px) {
+        font-size: calc($role-label-ratio*2.5rem);
     }
 
     @media screen and (min-width: 400px) and (max-width: 465px) {
-        font-size: calc($role-label-ratio*1.5rem);
+        font-size: calc($role-label-ratio*2.25rem);
     }
 
     @media screen and (max-width: 400px) {
-        font-size: calc($role-label-ratio*1.25rem);
+        font-size: calc($role-label-ratio*2.0rem);
     }
 }
 
