@@ -26,3 +26,14 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 $min-landscape-width: 1060px;
+
+.information-block {
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    border: 1px solid #3880FF;
+}
+
+.information-block:hover {
+    border: 3px solid #3880FF;
+}
