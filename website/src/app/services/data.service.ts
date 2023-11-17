@@ -22,7 +22,8 @@ export class DataService {
       description: 'Some sort of description for the average cost calculator',
       attributes: [
         'one', 'two', 'three',
-      ]
+      ],
+      submoduleName: 'average-cost'
     }
   ];
 
@@ -41,4 +42,5 @@ export interface Project {
   title: string;
   description: string;
   attributes: string[];
+  submoduleName?: string;
 }
