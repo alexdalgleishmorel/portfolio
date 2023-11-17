@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DataService, Project } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
+import { Project } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-project-block',
@@ -14,8 +15,13 @@ export class ProjectBlockComponent implements OnInit {
     attributes: []
   };
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
+  onSelect() {
+    if (this.project.submoduleName) {
+      this.router.navigate([this.project.submoduleName]);
+    }
+  }
 }

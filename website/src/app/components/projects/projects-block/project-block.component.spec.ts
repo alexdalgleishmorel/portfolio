@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ProjectBlockComponent } from './projects-block.component';
+import { ProjectBlockComponent } from './project-block.component';
 
 describe('ProjectBlockComponent', () => {
   let component: ProjectBlockComponent;
