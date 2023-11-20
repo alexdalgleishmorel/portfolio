@@ -21,7 +21,10 @@ export class ProjectBlockComponent implements OnInit {
 
   onSelect() {
     if (this.project.submoduleName) {
-      this.router.navigate([this.project.submoduleName]);
+      const url = this.router.serializeUrl(
+        this.router.createUrlTree([this.project.submoduleName])
+      );
+      window.open(url, '_blank');
     }
   }
 }
