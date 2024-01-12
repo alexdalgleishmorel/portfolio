@@ -31,9 +31,10 @@ $min-landscape-width: 1060px;
     border-radius: 10px;
     padding: 20px;
     cursor: pointer;
-    border: 1px solid #3880FF;
+    border: 1px solid #FFFFFF;
 }
 
 .information-block:hover {
-    border: 3px solid #3880FF;
+    outline: 2px solid #3880FF;
+    outline-offset: -2px;
 }
