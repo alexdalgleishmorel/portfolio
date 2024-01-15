@@ -9,9 +9,13 @@ import { Project } from 'src/app/services/data.service';
 })
 export class ProjectBlockComponent {
   @Input() project: Project = {
+    year: '',
     title: '',
     description: '',
-    attributes: []
+    attributes: [],
+    githubLink: '',
+    demoLink: '',
+    liveDemoLink: '',
   };
 
   constructor(private router: Router) {}

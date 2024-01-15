@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ContentComponent {
   
-  public selectedNavOption: NavOption = NavOption.EXPERIENCE;
+  public selectedNavOption: NavOption = NavOption.PROJECTS;
 
   constructor() {}
 
