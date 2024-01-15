@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Experience } from 'src/app/services/data.service';
 
 @Component({
@@ -6,18 +6,14 @@ import { Experience } from 'src/app/services/data.service';
   templateUrl: './experience-block.component.html',
   styleUrls: ['./experience-block.component.scss'],
 })
-export class ExperienceBlockComponent implements OnInit {
-
+export class ExperienceBlockComponent {
   @Input() experience: Experience = {
     timeRange: '',
     title: '',
-    company: '',
     description: '',
-    attributes: []
+    attributes: [],
+    titles: []
   };
 
   constructor() {}
-
-  ngOnInit() {}
-
 }

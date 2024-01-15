@@ -1,17 +1,17 @@
 <div class="information-block content">
+  <ion-text color="medium" class="time-range">{{experience.timeRange}}</ion-text>
+  <ion-text class="title">{{experience.title}}</ion-text>
   <div class="row-container">
-    <ion-text color="medium" class="time-range">{{experience.timeRange}}</ion-text>
-    <div class="small-spacer"></div>
-    <ion-text class="title">{{experience.title}}</ion-text>
-    <div class="small-spacer"></div>
-    <ion-text>{{experience.company}}</ion-text>
+    <div class="attribute-container" *ngFor="let item of experience.titles">
+      <ion-chip class="attribute" color="primary">{{item}}</ion-chip>
+    </div>
   </div>
   <div class="spacer"></div>
   <ion-text color="medium">{{experience.description}}</ion-text>
   <div class="small-spacer"></div>
   <div class="row-container">
-    <div class="attribute-container" *ngFor="let attribute of experience.attributes">
-      <ion-chip class="attribute" color="success">{{attribute}}</ion-chip>
+    <div class="attribute-container" *ngFor="let item of experience.attributes">
+      <ion-chip class="attribute" color="success">{{item}}</ion-chip>
     </div>
   </div>
 </div>

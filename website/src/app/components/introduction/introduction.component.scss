@@ -22,6 +22,7 @@ $role-label-ratio: 0.60;
 
     @media screen and (max-width: $min-landscape-width) {
         width: 90%;
+        align-items: center;
     }
 }
 
@@ -29,24 +30,10 @@ $role-label-ratio: 0.60;
     display: flex;
     flex-direction: row;
 
-    img {
-        border-radius: 10px;
-        width: $img-size;
-        height: $img-size;
-    }
-
     .icon {
         border-radius: 5px;
         font-size: $media-icon-size;
         cursor: pointer;
-    }
-
-    .icon:hover {
-        color: #3880FF;
-    }
-
-    .profile-icon-padding {
-        padding: 50px;
     }
 
     .icon-padding {
@@ -64,9 +51,14 @@ $role-label-ratio: 0.60;
     }
 }
 
+.motivation {
+    @media screen and (max-width: $min-landscape-width) {
+        text-align: center;
+    }
+}
+
 .name {
     font-weight: bold;
-    color: #3880FF;
 
     @media screen and (min-width: 1315px) {
         font-size: 2.5rem;
@@ -90,6 +82,15 @@ $role-label-ratio: 0.60;
 
     @media screen and (max-width: 400px) {
         font-size: 2.0rem;
+    }
+}
+
+.name-role-container {
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: $min-landscape-width) {
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -117,11 +118,6 @@ $role-label-ratio: 0.60;
     @media screen and (max-width: 400px) {
         font-size: calc($role-label-ratio*2.0rem);
     }
-}
-
-.name-role-container {
-    display: flex;
-    flex-direction: column;
 }
 
 .spacer {

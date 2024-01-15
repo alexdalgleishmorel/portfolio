@@ -1,14 +1,8 @@
 @import '../../global.scss';
 
-.main-columns {
+.content {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-
-    @media screen and (max-width: $min-landscape-width) {
-        flex-direction: column;
-    }
 }
 
 .intro {
@@ -20,7 +14,13 @@
     }
 }
 
-.content {
+.main-columns {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: $min-landscape-width) {
+        flex-direction: column;
+    }
 }

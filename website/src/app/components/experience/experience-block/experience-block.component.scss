@@ -2,6 +2,11 @@
     margin: 0;
 }
 
+.attribute-container {
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
 .content {
     width: 100%;
     display: flex;
@@ -14,23 +19,14 @@
     flex-wrap: wrap;
 }
 
-.spacer {
-    padding: 10px;
-}
-
 .small-spacer {
     padding: 5px;
 }
 
-.attribute-container {
-    padding-top: 5px;
-    padding-right: 5px;
+.spacer {
+    padding: 10px;
 }
 
 .time-range {
     font-weight: bold;
-}
-
-.title {
-    color: #3880FF;
 }

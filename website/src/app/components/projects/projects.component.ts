@@ -6,13 +6,10 @@ import { DataService, Project } from 'src/app/services/data.service';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent implements OnInit {
-
+export class ProjectsComponent {
   public projects: Project[];
 
   constructor(private dataService: DataService) {
     this.projects = dataService.projects;
   }
-
-  ngOnInit() {}
 }

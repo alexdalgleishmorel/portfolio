@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService, Experience } from 'src/app/services/data.service';
 
 @Component({
@@ -6,13 +6,10 @@ import { DataService, Experience } from 'src/app/services/data.service';
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss'],
 })
-export class ExperienceComponent  implements OnInit {
-
+export class ExperienceComponent {
   public experiences: Experience[];
 
   constructor(private dataService: DataService) {
     this.experiences = dataService.experiences;
   }
-
-  ngOnInit() {}
 }

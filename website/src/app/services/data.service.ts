@@ -6,12 +6,36 @@ import { Injectable } from '@angular/core';
 export class DataService {
   public experiences: Experience[] = [
     {
-      timeRange: '2022 - PRESENT',
+      timeRange: 'SEPT 2023 - MAY 2024',
       title: 'Software Development Intern',
-      company: 'Blackline Safety',
+      description: 'Some sort of semi-long description where I go into the details of the job, including key points and criteria that I feel really stands out about what I did with them.Some sort of semi-long description where I go into the details of the job, including key points and criteria that I feel really stands out about what I did with them.',
+      attributes: [
+        'one', 'two', 'three',
+      ],
+      titles: [
+        'Blackline Safety',
+      ]
+    },
+    {
+      timeRange: 'SEPT 2022 - SEPT 2023',
+      title: 'Software Development Intern',
       description: 'Some sort of semi-long description where I go into the details of the job, including key points and criteria that I feel really stands out about what I did with them.',
       attributes: [
         'one', 'two', 'three',
+      ],
+      titles: [
+        'Blackline Safety',
+      ]
+    },
+    {
+      timeRange: 'MAY 2022 - SEPT 2022',
+      title: 'Software Development Intern',
+      description: 'Some sort of semi-long description where I go into the details of the job, including key points and criteria that I feel really stands out about what I did with them.',
+      attributes: [
+        'one', 'two', 'three',
+      ],
+      titles: [
+        'Blackline Safety',
       ]
     }
   ];
@@ -33,9 +57,9 @@ export class DataService {
 export interface Experience {
   timeRange: string;
   title: string;
-  company: string;
   description: string;
   attributes: string[];
+  titles: string[];
 }
 
 export interface Project {

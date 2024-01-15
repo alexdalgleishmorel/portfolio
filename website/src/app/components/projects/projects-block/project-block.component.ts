@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/services/data.service';
 
@@ -7,8 +7,7 @@ import { Project } from 'src/app/services/data.service';
   templateUrl: './project-block.component.html',
   styleUrls: ['./project-block.component.scss'],
 })
-export class ProjectBlockComponent implements OnInit {
-
+export class ProjectBlockComponent {
   @Input() project: Project = {
     title: '',
     description: '',
@@ -17,14 +16,5 @@ export class ProjectBlockComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit() {}
-
-  onSelect() {
-    if (this.project.submoduleName) {
-      const url = this.router.serializeUrl(
-        this.router.createUrlTree([this.project.submoduleName])
-      );
-      window.open(url, '_blank');
-    }
-  }
+  onSelect() {}
 }
