@@ -1,27 +1,25 @@
 <ion-content [scrollY]="false">
   <div class="content">
     <div class="main-container">
-      <div class="name-role-container">
-        <ion-text class="name">
-          Alex Dalgleish-Morel
-        </ion-text>
-        <ion-text class="role">
-          Software Developer
-        </ion-text>
-      </div>
+      <ion-card-title>Alex Dalgleish-Morel</ion-card-title>
+      <ion-card-subtitle>Software Developer</ion-card-subtitle>
       <div class="spacer"></div>
-      <ion-text class="motivation" color="medium">
-        I build user-friendly interfaces that solve everyday issues with smart design solutions.
+      <ion-text color="medium" class="motto">
+        Focused on building user-oriented interfaces with smart design solutions.
       </ion-text>
       <div class="spacer"></div>
-      <div class="media-container">
-        <div class="row">
-          <ion-icon class="icon linkedin" name="logo-linkedin"></ion-icon>
-          <div class="icon-padding"></div>
-          <ion-icon class="icon github" name="logo-github"></ion-icon>
-          <div class="icon-padding"></div>
-          <ion-icon class="icon youtube" name="logo-youtube"></ion-icon>
-        </div>
+      <div class="row">
+        <ion-button shape="round" color="light">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </ion-button>
+        <div class="icon-padding"></div>
+        <ion-button shape="round" color="light">
+          <ion-icon name="logo-github"></ion-icon>
+        </ion-button>
+        <div class="icon-padding"></div>
+        <ion-button shape="round" color="light">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </ion-button>
       </div>
     </div>
   </div>

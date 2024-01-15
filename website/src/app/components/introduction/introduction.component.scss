@@ -5,6 +5,10 @@ $media-padding-size: 20px;
 $media-icon-size: calc($img-size/2) - $media-padding-size;
 $role-label-ratio: 0.60;
 
+.bold {
+    font-weight: bold;
+}
+
 .content {
     width: 100%;
     height: 100%;
@@ -26,98 +30,15 @@ $role-label-ratio: 0.60;
     }
 }
 
-.media-container {
-    display: flex;
-    flex-direction: row;
-
-    .icon {
-        border-radius: 5px;
-        font-size: $media-icon-size;
-        cursor: pointer;
-    }
-
-    .icon-padding {
-        padding: $media-padding-size;
-    }
-
-    .row {
-        display: flex;
-        flex-direction: row;
-    }
-    
-    .column {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-.motivation {
+.motto {
     @media screen and (max-width: $min-landscape-width) {
         text-align: center;
     }
 }
 
-.name {
-    font-weight: bold;
-
-    @media screen and (min-width: 1315px) {
-        font-size: 2.5rem;
-    }
-
-    @media screen and (min-width: 1200px) and (max-width: 1315px) {
-        font-size: 2.25rem;
-    }
-
-    @media screen and (min-width: 1060px) and (max-width: 1200px) {
-        font-size: 2.0rem;
-    }
-
-    @media screen and (min-width: 465px) and (max-width: 1060px) {
-        font-size: 2.5rem;
-    }
-
-    @media screen and (min-width: 400px) and (max-width: 465px) {
-        font-size: 2.25rem;
-    }
-
-    @media screen and (max-width: 400px) {
-        font-size: 2.0rem;
-    }
-}
-
-.name-role-container {
+.row {
     display: flex;
-    flex-direction: column;
-    @media screen and (max-width: $min-landscape-width) {
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-.role {
-    @media screen and (min-width: 1315px) {
-        font-size: calc($role-label-ratio*2.5rem);
-    }
-
-    @media screen and (min-width: 1200px) and (max-width: 1315px) {
-        font-size: calc($role-label-ratio*2.25rem);
-    }
-
-    @media screen and (min-width: 1060px) and (max-width: 1200px) {
-        font-size: calc($role-label-ratio*2.0rem);
-    }
-
-    @media screen and (min-width: 465px) and (max-width: 1060px) {
-        font-size: calc($role-label-ratio*2.5rem);
-    }
-
-    @media screen and (min-width: 400px) and (max-width: 465px) {
-        font-size: calc($role-label-ratio*2.25rem);
-    }
-
-    @media screen and (max-width: 400px) {
-        font-size: calc($role-label-ratio*2.0rem);
-    }
+    flex-direction: row;
 }
 
 .spacer {
