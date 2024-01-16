@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./introduction.component.scss'],
 })
 export class IntroductionComponent {
+  showSocialMedia: boolean = false;
 
   constructor() {}
+
+  displayMedia() {
+    this.showSocialMedia = true;
+  }
 }
