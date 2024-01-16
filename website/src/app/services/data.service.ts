@@ -63,6 +63,17 @@ export class DataService {
       githubLink: 'https://github.com/alexdalgleishmorel/average-cost-app',
       demoLink: '',
       liveDemoLink: 'https://alexdalgleishmorel.github.io/average-cost-app'
+    },
+    {
+      year: '2023',
+      title: 'Personal Website',
+      description: 'Some sort of description for my personal website',
+      attributes: [
+        'one', 'two', 'three',
+      ],
+      githubLink: 'https://github.com/alexdalgleishmorel/alexdalgleishmorel.com',
+      demoLink: '',
+      liveDemoLink: ''
     }
   ];
 
