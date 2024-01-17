@@ -2,7 +2,7 @@
   <div class="content">
     <app-navigation-bar [(selectedNavOption)]="selectedNavOption"></app-navigation-bar>
     <ion-content>
-      <app-about *ngIf="isAboutSelected()"></app-about>
+      <app-about (optionSelected)="setSelectedNavOption($event)" *ngIf="isAboutSelected()"></app-about>
       <app-experience *ngIf="isExperienceSelected()"></app-experience>
       <app-projects *ngIf="isProjectsSelected()"></app-projects>
     </ion-content>

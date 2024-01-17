@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ContentComponent {
   
-  public selectedNavOption: NavOption = NavOption.EXPERIENCE;
+  public selectedNavOption: NavOption = NavOption.ABOUT;
 
   constructor() {}
 
@@ -21,6 +21,10 @@ export class ContentComponent {
 
   public isProjectsSelected(): boolean {
     return this.selectedNavOption === NavOption.PROJECTS;
+  }
+
+  public setSelectedNavOption(option: NavOption) {
+    this.selectedNavOption = option;
   }
 }
 
