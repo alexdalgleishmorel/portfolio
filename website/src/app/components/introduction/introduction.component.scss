@@ -1,5 +1,3 @@
-@import '../../../global.scss';
-
 $img-size: 100px;
 $media-padding-size: 20px;
 $media-icon-size: calc($img-size/2) - $media-padding-size;
@@ -24,14 +22,14 @@ $role-label-ratio: 0.60;
     flex-direction: column;
     justify-content: center;
 
-    @media screen and (max-width: $min-landscape-width) {
+    @media screen and (max-width: 1060px) {
         width: 90%;
         align-items: center;
     }
 }
 
 .motto {
-    @media screen and (max-width: $min-landscape-width) {
+    @media screen and (max-width: 1060px) {
         text-align: center;
     }
 }
