@@ -14,6 +14,7 @@ export class DataService {
       ],
       titles: [
         'Blackline Safety',
+        'Emerald Team'
       ]
     },
     {
@@ -25,6 +26,7 @@ export class DataService {
       ],
       titles: [
         'Blackline Safety',
+        'Onyx Team'
       ]
     },
     {
