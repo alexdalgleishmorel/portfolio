@@ -10,7 +10,7 @@ export class ExperienceBlockComponent {
   @Input() experience: Experience = {
     timeRange: '',
     title: '',
-    description: '',
+    description: [],
     attributes: [],
     titles: []
   };

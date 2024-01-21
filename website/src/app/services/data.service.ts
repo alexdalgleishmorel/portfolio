@@ -8,9 +8,13 @@ export class DataService {
     {
       timeRange: 'SEPT 2022 - PRESENT',
       title: 'Software Development Intern',
-      description: 'Some sort of semi-long description where I go into the details of the job, including key points and criteria that I feel really stands out about what I did with them.',
+      description: [
+        'As a member of the Emerald team, my role involves development of the customer-facing Angular portal, where users manage and monitor their fleet of devices.',
+        'My contributions involve on-time implementation and deployment of new components, along with strong UI tests to ensure reliability.',
+        "I've undertook multiple major Angular version upgrades, along with improvements to our testing framework to eliminate warnings and linting errors, and spearheaded projects to upgrade our external libraries.",
+      ],
       attributes: [
-        'one', 'two', 'three',
+        'Frontend', 'Angular', 'Agile', 'AWS', 'CI/CD', 'Unit/UI Tests', 'Refactoring'
       ],
       titles: [
         'Blackline Safety',
@@ -20,9 +24,14 @@ export class DataService {
     {
       timeRange: 'MAY 2022 - SEPT 2022',
       title: 'Software Development Intern',
-      description: 'Some sort of semi-long description where I go into the details of the job, including key points and criteria that I feel really stands out about what I did with them.',
+      description: [
+        'As a member of the Onyx team, my role was in developing and maintaining the backend applications which support the functionality of the Blackline software ecosystem.',
+        'This role required proficiency with Python, PHP, and SQL, along with a strong grasp on interacting with relational databases.',
+        'My contributions involved the implementation of new API endpoints and the improvement of existing ones.',
+        'These improvements focused on enhancing efficiency, reliability and observability.'
+      ],
       attributes: [
-        'one', 'two', 'three',
+        'Backend', 'API', 'Agile', 'Data Processing', 'Python', 'Bug Resolution', 'Observability'
       ],
       titles: [
         'Blackline Safety',
@@ -32,9 +41,14 @@ export class DataService {
     {
       timeRange: 'SEPT 2019 - DEC 2024',
       title: 'Student',
-      description: 'Some sort of semi-long description where I go into the details of the job, including key points and criteria that I feel really stands out about what I did with them.Some sort of semi-long description where I go into the details of the job, including key points and criteria that I feel really stands out about what I did with them.',
+      description: [
+        'My computer science degree covered a comprehensive curriculum that provided a deep dive into both theoretical and practical aspects of computing.',
+        'This included foundational courses in data structures, database management, algorithm design & analysis, operating systems, computer networks, and more.',
+        'Later, the concentration of my degree centered on the human element of computing, with courses related to human-computer interaction.',
+        'This focused on understanding the ways in which we can created functional software that is enjoyable and intuitive for its users.'
+      ],
       attributes: [
-        'one', 'two', 'three',
+        'User Experience', 'UX Design', 'Data Structures', 'Algorithm Analysis', 'Computer Networks',
       ],
       titles: [
         'University of Calgary',
@@ -88,7 +102,7 @@ export class DataService {
 export interface Experience {
   timeRange: string;
   title: string;
-  description: string;
+  description: string[];
   attributes: string[];
   titles: string[];
 }
