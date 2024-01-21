@@ -19,6 +19,20 @@
     flex-wrap: wrap;
 }
 
+.column-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-block {
+    padding-right: 20px;
+}
+
+.logo-label {
+    font-size: 50%;
+}
+
 .small-spacer {
     padding: 5px;
 }

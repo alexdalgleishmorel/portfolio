@@ -11,6 +11,7 @@ export class ProjectBlockComponent {
   @Input() project: Project = {
     year: '',
     title: '',
+    hook: '',
     description: '',
     attributes: [],
     githubLink: '',

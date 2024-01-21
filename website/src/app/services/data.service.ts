@@ -46,21 +46,11 @@ export class DataService {
   public projects: Project[] = [
     {
       year: '2023',
-      title: 'Poker Flow V1',
-      description: 'Some sort of description for pokerflow',
+      title: 'Average Cost App',
+      hook: 'How much more of an asset should I buy? How will it affect my average cost?',
+      description: 'This app helps to answer those questions in a visual and intuitive way.',
       attributes: [
-        'one', 'two', 'three',
-      ],
-      githubLink: 'https://github.com/alexdalgleishmorel/poker-flow-app/tree/V1',
-      demoLink: '',
-      liveDemoLink: ''
-    },
-    {
-      year: '2023',
-      title: 'Average Cost Calculator',
-      description: 'Some sort of description for the average cost calculator',
-      attributes: [
-        'one', 'two', 'three',
+        'Angular', 'Data Visualization', 'API Integration',
       ],
       githubLink: 'https://github.com/alexdalgleishmorel/average-cost-app',
       demoLink: '',
@@ -68,15 +58,28 @@ export class DataService {
     },
     {
       year: '2023',
-      title: 'Personal Website',
-      description: 'Some sort of description for my personal website',
+      title: 'Poker Flow V1',
+      hook: 'Setting up and managing a poker game can be a hassle.',
+      description: 'This app simplifies the tasks of game setup, buy-ins and cashouts so that players can focus on the game itself.',
       attributes: [
-        'one', 'two', 'three',
+        'Angular', 'Websocket', 'Data Visualization', 'Custom API Integration',
       ],
-      githubLink: 'https://github.com/alexdalgleishmorel/alexdalgleishmorel.com',
+      githubLink: 'https://github.com/alexdalgleishmorel/poker-flow-app/tree/V1',
       demoLink: '',
       liveDemoLink: ''
-    }
+    },
+    {
+      year: '2023',
+      title: 'Poker Flow V1 API',
+      hook: 'The backbone for the Poker Flow V1 application.',
+      description: 'This app handles all Poker Flow transactions, all while keeping clients updated in real time.',
+      attributes: [
+        'API', 'Python', 'Flask', 'Websocket', 'Database Management',
+      ],
+      githubLink: 'https://github.com/alexdalgleishmorel/poker-flow-api/tree/V1',
+      demoLink: '',
+      liveDemoLink: ''
+    },
   ];
 
   constructor() {}
@@ -93,6 +96,7 @@ export interface Experience {
 export interface Project {
   year: string;
   title: string;
+  hook: string;
   description: string;
   attributes: string[];
   githubLink: string;

@@ -1,6 +1,8 @@
 <div (click)="onSelect()" class="information-block content">
   <ion-text class="title">{{project.title}}</ion-text>
   <div class="small-spacer"></div>
+  <ion-text color="secondary">{{project.hook}}</ion-text>
+  <div class="small-spacer"></div>
   <ion-text color="medium">{{project.description}}</ion-text>
   <div class="small-spacer"></div>
   <div class="row-container">
@@ -10,27 +12,34 @@
   </div>
   <div class="small-spacer"></div>
   <div class="row-container">
-    <div *ngIf="project.githubLink">
-      <div class="row-container">
-        <a [href]="project.githubLink" target="_blank">
-          <ion-icon size="large" name="logo-github"></ion-icon>
-        </a>
-        <div class="spacer"></div>
+    <div class="logo-block" *ngIf="project.githubLink">
+      <div class="column-container">
+        <div class="row-container">
+          <a [href]="project.githubLink" target="_blank">
+            <ion-icon size="large" name="logo-github"></ion-icon>
+          </a>
+        </div>
+        <ion-text class="logo-label" color="medium">GITHUB</ion-text>
       </div>
     </div>
-    <div *ngIf="project.demoLink">
-      <div class="row-container">
-        <a [href]="project.demoLink" target="_blank">
-          <ion-icon size="large" name="logo-youtube"></ion-icon>
-        </a>
-        <div class="spacer"></div>
+    <div class="logo-block" *ngIf="project.demoLink">
+      <div class="column-container">
+        <div class="row-container">
+          <a [href]="project.demoLink" target="_blank">
+            <ion-icon size="large" name="logo-youtube"></ion-icon>
+          </a>
+        </div>
+        <ion-text class="logo-label" color="medium">DEMO</ion-text>
       </div>
     </div>
-    <div *ngIf="project.liveDemoLink">
-      <div class="row-container">
-        <a [href]="project.liveDemoLink" target="_blank">
-          <ion-icon size="large" name="play-outline"></ion-icon>
-        </a>
+    <div class="logo-block" *ngIf="project.liveDemoLink">
+      <div class="column-container">
+        <div class="row-container">
+          <a [href]="project.liveDemoLink" target="_blank">
+            <ion-icon size="large" name="play-outline"></ion-icon>
+          </a>
+        </div>
+        <ion-text class="logo-label" color="medium">TRY IT</ion-text>
       </div>
     </div>
   </div>
