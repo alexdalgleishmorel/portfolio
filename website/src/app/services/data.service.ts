@@ -59,6 +59,18 @@ export class DataService {
 
   public projects: Project[] = [
     {
+      year: '2024',
+      title: 'Flow Report App',
+      hook: "What are the current river surfing conditions? When's the next best time to surf?",
+      description: 'This app provides beautiful visualizations and metrics to easily answer those questions.',
+      attributes: [
+        'React', 'Data Visualization', 'Real-Time Data Sync',
+      ],
+      githubLink: 'https://github.com/alexdalgleishmorel/flow-report',
+      demoLink: 'https://youtu.be/GBsQJYNHIeY',
+      liveDemoLink: 'https://alexdalgleishmorel.github.io/flow-report/'
+    },
+    {
       year: '2023',
       title: 'Average Cost App',
       hook: 'How much more of an asset should I buy? How will it affect my average cost?',
