@@ -67,7 +67,7 @@ export class DataService {
         'Angular', 'Data Visualization', 'API Integration',
       ],
       githubLink: 'https://github.com/alexdalgleishmorel/average-cost-app',
-      demoLink: '',
+      demoLink: 'https://youtu.be/BLWp4dxiaz0',
       liveDemoLink: 'https://alexdalgleishmorel.github.io/average-cost-app'
     },
     {
@@ -79,7 +79,7 @@ export class DataService {
         'Angular', 'Websocket', 'Data Visualization', 'Custom API Integration',
       ],
       githubLink: 'https://github.com/alexdalgleishmorel/poker-flow-app/tree/V1',
-      demoLink: '',
+      demoLink: 'https://youtu.be/QoeoyLg-N_g',
       liveDemoLink: ''
     },
     {
