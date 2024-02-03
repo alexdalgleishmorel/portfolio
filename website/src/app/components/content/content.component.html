@@ -1,6 +1,6 @@
 <ion-content [scrollY]="false">
   <div class="content">
-    <app-navigation-bar [(selectedNavOption)]="selectedNavOption"></app-navigation-bar>
+    <app-navigation-bar [(selectedNavOption)]="selectedNavOption" (selectedNavOptionChange)="setSelectedNavOption($event)"></app-navigation-bar>
     <ion-content>
       <app-about (optionSelected)="setSelectedNavOption($event)" *ngIf="isAboutSelected()"></app-about>
       <app-experience *ngIf="isExperienceSelected()"></app-experience>
