@@ -14,7 +14,7 @@ export class DataService {
         "I've undertook multiple major Angular version upgrades, along with improvements to our testing framework to eliminate warnings and linting errors, and spearheaded projects to upgrade our external libraries.",
       ],
       attributes: [
-        'Frontend', 'Angular', 'Agile', 'AWS', 'CI/CD', 'Unit/UI Tests', 'Refactoring'
+        'Frontend', 'Angular', 'AWS', 'CI/CD', 'Unit/UI Tests', 'Refactoring'
       ],
       titles: [
         'Blackline Safety',
@@ -31,7 +31,7 @@ export class DataService {
         'These improvements focused on enhancing efficiency, reliability and observability.'
       ],
       attributes: [
-        'Backend', 'API', 'Agile', 'Data Processing', 'Python', 'Bug Resolution', 'Observability'
+        'Backend', 'API', 'Data Processing', 'Python', 'Bug Resolution', 'Observability'
       ],
       titles: [
         'Blackline Safety',
@@ -64,7 +64,7 @@ export class DataService {
       hook: "What are the current river surfing conditions? When's the next best time to surf?",
       description: 'This app provides beautiful visualizations and metrics to easily answer those questions.',
       attributes: [
-        'React', 'Data Visualization', 'Real-Time Data Sync',
+        'React', 'Data Visualization', 'API Integration',
       ],
       githubLink: 'https://github.com/alexdalgleishmorel/flow-report',
       demoLink: 'https://youtu.be/GBsQJYNHIeY',
