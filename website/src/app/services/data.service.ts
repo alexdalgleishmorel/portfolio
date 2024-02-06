@@ -67,7 +67,7 @@ export class DataService {
         'React', 'Data Visualization', 'API Integration',
       ],
       githubLink: 'https://github.com/alexdalgleishmorel/flow-report',
-      demoLink: 'https://youtu.be/neVWs1R3e8o',
+      demoLink: 'https://youtu.be/1zs52CFQ0kw',
       liveDemoLink: 'https://alexdalgleishmorel.github.io/flow-report/'
     },
     {
