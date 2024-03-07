@@ -62,13 +62,13 @@ export class DataService {
       year: '2024',
       title: 'Flow Report App',
       hook: "What are the current river surfing conditions? When's the next best time to surf?",
-      description: 'This app provides beautiful visualizations and metrics to easily answer those questions.',
+      description: 'This app enables the Alberta river surfing community to easily answer those questions.',
       attributes: [
         'React', 'Data Visualization', 'API Integration',
       ],
       githubLink: 'https://github.com/alexdalgleishmorel/flow-report',
-      demoLink: 'https://youtu.be/1zs52CFQ0kw',
-      liveDemoLink: 'https://alexdalgleishmorel.github.io/flow-report/'
+      demoLink: 'https://youtu.be/E7JZoNrNiq0',
+      liveDemoLink: 'https://alexdalgleishmorel.github.io/flow-report'
     },
     {
       year: '2023',
