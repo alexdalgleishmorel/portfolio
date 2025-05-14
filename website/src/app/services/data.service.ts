@@ -6,38 +6,33 @@ import { Injectable } from '@angular/core';
 export class DataService {
   public experiences: Experience[] = [
     {
-      timeRange: 'SEPT 2022 - PRESENT',
-      title: 'Software Development Intern',
+      timeRange: 'DEC 2024 - PRESENT',
+      title: 'Software Developer',
       description: [
-        'As a member of the Emerald team, my role involves development of the customer-facing Angular portal, where users manage and monitor their fleet of devices.',
-        'My contributions involve on-time implementation and deployment of new components, along with strong UI tests to ensure reliability.',
-        "I've undertook multiple major Angular version upgrades, along with improvements to our testing framework to eliminate warnings and linting errors, and spearheaded projects to upgrade our external libraries.",
+        'In my current role at Blackline Safety, I continue to develop and maintain a variety of applications, and improve our development processes to maximize our team efficiency.'
       ],
       attributes: [
-        'Frontend', 'Angular', 'AWS', 'CI/CD', 'Unit/UI Tests', 'Refactoring'
+        'Full-Stack', 'Agile',
       ],
       titles: [
         'Blackline Safety',
-        'Emerald Team'
       ]
     },
     {
-      timeRange: 'MAY 2022 - SEPT 2022',
+      timeRange: 'MAY 2022 - DEC 2024',
       title: 'Software Development Intern',
       description: [
-        'As a member of the Onyx team, my role was in developing and maintaining the backend applications which support the functionality of the Blackline software ecosystem.',
-        'This role required proficiency with Python, PHP, and SQL, along with a strong grasp on interacting with relational databases.',
-        'My contributions involved the implementation of new API endpoints and the improvement of existing ones.',
-        'These improvements focused on enhancing efficiency, reliability and observability.'
+        'During my internship at Blackline Safety, I contributed to both backend and frontend development across various teams.',
+        'At the beginning and end of my internship, I developed and maintained backend applications in Python and PHP, implemented and improved API endpoints, and enhanced system efficiency, reliability, and observability.',
+        'During the middle of my internship, I focused on the customer-facing Angular portal, leading Angular version upgrades, improving the UI testing framework, and delivering new components.',
       ],
       attributes: [
-        'Backend', 'API', 'Data Processing', 'Python', 'Bug Resolution', 'Observability'
+        'Full-Stack', 'Angular', 'Python', 'PHP', 'API', 'CI/CD', 'Unit/UI Tests', 'Observability'
       ],
       titles: [
         'Blackline Safety',
-        'Onyx Team'
       ]
-    },
+    },    
     {
       timeRange: 'SEPT 2019 - DEC 2024',
       title: 'Student',
@@ -58,6 +53,18 @@ export class DataService {
   ];
 
   public projects: Project[] = [
+    {
+      year: '2025',
+      title: 'Mortgage Visualization App',
+      hook: "How much will my house really cost? How do lump sum payments affect my future?",
+      description: 'This app enables new or prospective homeowners to easily answer those questions.',
+      attributes: [
+        'Angular', 'Data Visualization',
+      ],
+      githubLink: 'https://github.com/alexdalgleishmorel/mortgage-calculator',
+      demoLink: '',
+      liveDemoLink: 'https://alexdalgleishmorel.github.io/mortgage-calculator'
+    },
     {
       year: '2024',
       title: 'Flow Report App',
