@@ -11,7 +11,7 @@ export const projects: Project[] = [
     links: { github: '#', try: '#' },
     accent: '#F0A36B',
     accent2: '#7A4FE0',
-    motif: 'wave',
+    motif: 'mortgage',
   },
   {
     id: 'flow-report',
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     links: { github: '#', demo: '#', try: '#' },
     accent: '#5FD0C8',
     accent2: '#3A6BFF',
-    motif: 'rings',
+    motif: 'flow-report',
   },
   {
     id: 'average-cost',
@@ -35,7 +35,7 @@ export const projects: Project[] = [
     links: { github: '#', demo: '#', try: '#' },
     accent: '#FFB070',
     accent2: '#E04F8E',
-    motif: 'bars',
+    motif: 'average-cost',
   },
   {
     id: 'poker-flow',
@@ -47,6 +47,6 @@ export const projects: Project[] = [
     links: { github: '#' },
     accent: '#C8A2FF',
     accent2: '#5462E8',
-    motif: 'pulse',
+    motif: 'poker-flow',
   },
 ];

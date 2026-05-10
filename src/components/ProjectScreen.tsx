@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const ProjectScreen = ({ project, reducedMotion }: Props) => {
-  const { name, headline, accent, accent2, motif, tags } = project;
+  const { accent, accent2, motif } = project;
   const Motif = motifs[motif];
   return (
     <div
@@ -24,12 +24,6 @@ export const ProjectScreen = ({ project, reducedMotion }: Props) => {
         style={{ '--a': accent, '--b': accent2 } as CSSProperties}
       >
         <Motif accent={accent} accent2={accent2} />
-      </div>
-
-      <div className="ps-content">
-        <div className="ps-eyebrow">{tags.join(' · ').toUpperCase()}</div>
-        <div className="ps-name">{name}</div>
-        <div className="ps-headline">{headline}</div>
       </div>
     </div>
   );

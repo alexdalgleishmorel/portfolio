@@ -228,47 +228,14 @@ body {
   opacity: 0.85;
 }
 
-.ps-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 90%;
-}
-
-.ps-eyebrow {
-  font-family: var(--sans);
-  font-size: 0.62cqw;
-  letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 1.2em;
-  font-weight: 500;
-}
-
-.ps-name {
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 2.2cqw;
-  line-height: 1.05;
-  color: #fff;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
-  letter-spacing: -0.01em;
-}
-
-.ps-headline {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.0cqw;
-  margin-top: 0.8em;
-  color: rgba(255,255,255,0.78);
-}
-
 /* container queries for screen sizing */
 .screen { container-type: inline-size; }
 
-/* motifs */
+/* motifs — slight horizontal inset so the animation doesn't kiss the screen
+   edges. The screen + .ps-root behind it still cover the magenta in full. */
 .ps-motif {
   position: absolute;
-  inset: 0;
+  inset: 0 1.5%;
   z-index: 1;
   pointer-events: none;
 }
@@ -748,14 +715,657 @@ body {
 
   /* screen content scales with the screen container, so cqw values still work,
      but bump them slightly because the screen is smaller in absolute px */
-  .ps-eyebrow { font-size: 1.7cqw; }
-  .ps-name { font-size: 4.6cqw; }
-  .ps-headline { font-size: 2.4cqw; }
 
   .detail-card { padding: 22px 22px; border-radius: 20px; }
   .detail-name { font-size: 26px; }
   .detail-headline { font-size: 14.5px; }
   .detail-desc { font-size: 13px; }
+}
+
+/* ──────────────────────────────────────── per-project motifs */
+
+/* mortgage */
+.mortgage-motif {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 18%, color-mix(in srgb, var(--a) 22%, transparent), transparent 34%),
+    radial-gradient(circle at 12% 82%, color-mix(in srgb, var(--b) 20%, transparent), transparent 36%),
+    #050506;
+}
+
+.mortgage-motif .mortgage-grid {
+  position: absolute;
+  inset: 18% 5% 18% 5%;
+  opacity: 0.45;
+}
+
+.mortgage-motif .mortgage-grid span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mortgage-motif .mortgage-grid span:nth-child(1) { top: 16%; }
+.mortgage-motif .mortgage-grid span:nth-child(2) { top: 36%; }
+.mortgage-motif .mortgage-grid span:nth-child(3) { top: 56%; }
+.mortgage-motif .mortgage-grid span:nth-child(4) { top: 76%; }
+
+.mortgage-motif .mortgage-bars {
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  bottom: 12%;
+  height: 74%;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75%;
+  transform-origin: center bottom;
+}
+
+.mortgage-motif .mortgage-bars i {
+  flex: 1;
+  border-radius: 999px 999px 0 0;
+  transform-origin: center bottom;
+}
+
+.mortgage-motif .mortgage-bars-a i {
+  background: linear-gradient(to top, #FECACA 50%, #BBF7D0 50%);
+  opacity: 0.45;
+  height: calc(16% + var(--h, 0) * 1%);
+  animation: mortgage-bars-grow 8s ease-in-out infinite;
+}
+
+.mortgage-motif .mortgage-bars-a i:nth-child(1)  { --h: 4; }
+.mortgage-motif .mortgage-bars-a i:nth-child(2)  { --h: 8; }
+.mortgage-motif .mortgage-bars-a i:nth-child(3)  { --h: 12; }
+.mortgage-motif .mortgage-bars-a i:nth-child(4)  { --h: 17; }
+.mortgage-motif .mortgage-bars-a i:nth-child(5)  { --h: 22; }
+.mortgage-motif .mortgage-bars-a i:nth-child(6)  { --h: 27; }
+.mortgage-motif .mortgage-bars-a i:nth-child(7)  { --h: 33; }
+.mortgage-motif .mortgage-bars-a i:nth-child(8)  { --h: 39; }
+.mortgage-motif .mortgage-bars-a i:nth-child(9)  { --h: 45; }
+.mortgage-motif .mortgage-bars-a i:nth-child(10) { --h: 51; }
+.mortgage-motif .mortgage-bars-a i:nth-child(11) { --h: 57; }
+.mortgage-motif .mortgage-bars-a i:nth-child(12) { --h: 63; }
+.mortgage-motif .mortgage-bars-a i:nth-child(13) { --h: 69; }
+.mortgage-motif .mortgage-bars-a i:nth-child(14) { --h: 75; }
+.mortgage-motif .mortgage-bars-a i:nth-child(15) { --h: 81; }
+.mortgage-motif .mortgage-bars-a i:nth-child(16) { --h: 87; }
+.mortgage-motif .mortgage-bars-a i:nth-child(17) { --h: 93; }
+.mortgage-motif .mortgage-bars-a i:nth-child(18) { --h: 99; }
+
+.mortgage-motif .mortgage-line {
+  position: absolute;
+  inset: 18% 3% 12% 3%;
+  overflow: visible;
+}
+
+.mortgage-motif .mortgage-line path {
+  fill: none;
+  stroke: #60A5FA;
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  opacity: 0.92;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.45));
+  animation: mortgage-line-flow 8s ease-in-out infinite;
+}
+
+@keyframes mortgage-bars-grow {
+  0%, 100% { transform: scaleY(0.94); opacity: 0.45; }
+  50% { transform: scaleY(0.78); opacity: 0.32; }
+}
+
+@keyframes mortgage-line-flow {
+  0%   { stroke-dashoffset: 100; }
+  50%  { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -100; }
+}
+
+/* flow-report */
+.flow-report-motif {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 38%, color-mix(in srgb, var(--b) 20%, transparent), transparent 34%),
+    radial-gradient(circle at 18% 78%, color-mix(in srgb, var(--a) 16%, transparent), transparent 34%),
+    linear-gradient(180deg, #101214 0%, #090b0d 100%);
+}
+
+.flow-report-motif .flow-report-panel {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  height: 18%;
+  border: 2px solid rgba(210, 218, 228, 0.54);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.015);
+  overflow: hidden;
+  animation: flow-report-panel-glow 8s ease-in-out infinite;
+}
+
+.flow-report-motif .flow-report-panel-a { top: 3%; }
+.flow-report-motif .flow-report-panel-b { top: 33%; animation-delay: -4s; }
+
+.flow-report-motif .flow-report-mini-bars {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 28%;
+  height: 28%;
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  gap: 1.2%;
+  align-items: end;
+}
+
+.flow-report-motif .flow-report-mini-bars i {
+  height: 32%;
+  border-radius: 2px 2px 0 0;
+  background: var(--b);
+  opacity: 0.9;
+  transform-origin: center bottom;
+  animation: flow-report-mini-pulse 8s ease-in-out infinite;
+}
+
+.flow-report-motif .flow-report-mini-bars i:nth-child(6),
+.flow-report-motif .flow-report-mini-bars i:nth-child(21) {
+  background: var(--a);
+  height: 64%;
+}
+
+.flow-report-motif .flow-report-mini-bars i:nth-child(11),
+.flow-report-motif .flow-report-mini-bars i:nth-child(12),
+.flow-report-motif .flow-report-mini-bars i:nth-child(22),
+.flow-report-motif .flow-report-mini-bars i:nth-child(23) { height: 88%; }
+
+.flow-report-motif .flow-report-mini-bars i:nth-child(3n) { animation-delay: -1s; }
+.flow-report-motif .flow-report-mini-bars i:nth-child(4n) { animation-delay: -2s; }
+.flow-report-motif .flow-report-mini-bars i:nth-child(5n) { animation-delay: -3s; }
+
+.flow-report-motif .flow-report-chart {
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  bottom: 3%;
+  height: 34%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.flow-report-motif .flow-report-bars {
+  position: absolute;
+  inset: 8% 2% 7% 2%;
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  gap: 1%;
+  align-items: end;
+}
+
+.flow-report-motif .flow-report-bars i {
+  height: 92%;
+  border-radius: 3px 3px 0 0;
+  background: var(--b);
+  transform-origin: center bottom;
+  opacity: 0.94;
+  animation: flow-report-bars-breathe 8s ease-in-out infinite;
+}
+
+.flow-report-motif .flow-report-bars i:nth-child(6),
+.flow-report-motif .flow-report-bars i:nth-child(21) { background: var(--a); }
+
+.flow-report-motif .flow-report-bars i:nth-child(8n)     { animation-delay: -1s; }
+.flow-report-motif .flow-report-bars i:nth-child(8n + 1) { animation-delay: -2s; }
+.flow-report-motif .flow-report-bars i:nth-child(8n + 2) { animation-delay: -3s; }
+.flow-report-motif .flow-report-bars i:nth-child(8n + 3) { animation-delay: -4s; }
+
+.flow-report-motif .flow-report-temp {
+  position: absolute;
+  inset: 2% 2% 7% 2%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.flow-report-motif .flow-report-temp path {
+  fill: none;
+  stroke: rgba(232, 236, 242, 0.72);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 142;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.18));
+  animation: flow-report-temperature 8s ease-in-out infinite;
+}
+
+.flow-report-motif .flow-report-marker {
+  position: absolute;
+  bottom: 4%;
+  width: 6%;
+  height: 7%;
+  border-radius: 999px;
+  background: var(--a);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--a) 60%, transparent);
+  animation: flow-report-marker 8s ease-in-out infinite;
+}
+
+.flow-report-motif .flow-report-marker-a { left: 22%; }
+
+.flow-report-motif .flow-report-marker-b {
+  left: 83%;
+  background: var(--b);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--b) 60%, transparent);
+  animation-delay: -4s;
+}
+
+@keyframes flow-report-panel-glow {
+  0%, 100% { border-color: rgba(210, 218, 228, 0.5); transform: translateY(0); }
+  50% { border-color: color-mix(in srgb, var(--b) 72%, rgba(210, 218, 228, 0.5)); transform: translateY(-2%); }
+}
+
+@keyframes flow-report-mini-pulse {
+  0%, 100% { transform: scaleY(0.82); opacity: 0.72; }
+  50% { transform: scaleY(1.24); opacity: 1; }
+}
+
+@keyframes flow-report-bars-breathe {
+  0%, 100% { transform: scaleY(0.94); opacity: 0.88; }
+  50% { transform: scaleY(1.02); opacity: 1; }
+}
+
+@keyframes flow-report-temperature {
+  0%, 100% { stroke-dashoffset: 0; transform: translateY(0); opacity: 0.64; }
+  50% { stroke-dashoffset: -36; transform: translateY(-4%); opacity: 0.9; }
+}
+
+@keyframes flow-report-marker {
+  0%, 100% { transform: translateY(0) scaleX(1); opacity: 0.9; }
+  50% { transform: translateY(-12%) scaleX(1.35); opacity: 1; }
+}
+
+/* average-cost */
+.average-cost-motif {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 28%, color-mix(in srgb, var(--b) 18%, transparent), transparent 34%),
+    radial-gradient(circle at 18% 76%, color-mix(in srgb, var(--a) 18%, transparent), transparent 36%),
+    linear-gradient(180deg, #111315 0%, #08090b 100%);
+}
+
+.average-cost-motif .average-cost-cards {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 16%;
+  height: 18%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4%;
+}
+
+.average-cost-motif .average-cost-card {
+  position: relative;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.055);
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+  animation: average-cost-card-lift 8s ease-in-out infinite;
+}
+
+.average-cost-motif .average-cost-card-b { animation-delay: -4s; }
+
+.average-cost-motif .average-cost-card i {
+  position: absolute;
+  left: 34%;
+  top: 24%;
+  width: 32%;
+  height: 11%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.average-cost-motif .average-cost-card b {
+  position: absolute;
+  left: 38%;
+  top: 47%;
+  width: 24%;
+  height: 16%;
+  border-radius: 999px;
+  background: #60A5FA;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.45);
+}
+
+.average-cost-motif .average-cost-card b::before {
+  content: '$';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 24%;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 2.4cqw;
+  line-height: 1;
+}
+
+.average-cost-motif .average-cost-card-b b {
+  background: #4ADE80;
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.45);
+}
+
+.average-cost-motif .average-cost-card span {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 15%;
+  height: 7%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.average-cost-motif .average-cost-chart {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 39%;
+  height: 34%;
+  overflow: hidden;
+}
+
+.average-cost-motif .average-cost-grid { position: absolute; inset: 0; }
+
+.average-cost-motif .average-cost-grid i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.average-cost-motif .average-cost-grid i:nth-child(1) { top: 18%; }
+.average-cost-motif .average-cost-grid i:nth-child(2) { top: 38%; }
+.average-cost-motif .average-cost-grid i:nth-child(3) { top: 58%; }
+.average-cost-motif .average-cost-grid i:nth-child(4) { top: 78%; }
+
+.average-cost-motif .average-cost-line,
+.average-cost-motif .average-cost-baseline {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.average-cost-motif .average-cost-line path {
+  fill: none;
+  stroke: #60A5FA;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 170;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 16px rgba(96, 165, 250, 0.55));
+  animation: average-cost-line-drift 8s ease-in-out infinite;
+}
+
+.average-cost-motif .average-cost-baseline path {
+  fill: none;
+  stroke: #4ADE80;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 14px rgba(74, 222, 128, 0.55));
+  animation: average-cost-baseline-pulse 8s ease-in-out infinite;
+}
+
+.average-cost-motif .average-cost-anomaly {
+  position: absolute;
+  width: 14%;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--b) 28%, transparent);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--b) 28%, transparent),
+    0 0 38px color-mix(in srgb, var(--b) 58%, transparent);
+  animation: average-cost-anomaly-ping 8s ease-in-out infinite;
+}
+
+.average-cost-motif .average-cost-anomaly-a { left: 37%; top: 14%; }
+
+.average-cost-motif .average-cost-anomaly-b {
+  left: 76%;
+  top: 66%;
+  width: 11%;
+  background: color-mix(in srgb, var(--a) 30%, transparent);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--a) 24%, transparent),
+    0 0 34px color-mix(in srgb, var(--a) 55%, transparent);
+  animation-delay: -4s;
+}
+
+.average-cost-motif .average-cost-slider {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 17%;
+  height: 6%;
+}
+
+.average-cost-motif .average-cost-slider i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 48%;
+  height: 8%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3B82F6, #60A5FA);
+  opacity: 0.75;
+}
+
+.average-cost-motif .average-cost-slider b {
+  position: absolute;
+  left: 22%;
+  top: 10%;
+  width: 5%;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: #60A5FA;
+  box-shadow: 0 0 0 12px rgba(96, 165, 250, 0.18);
+  animation: average-cost-slider 8s ease-in-out infinite;
+}
+
+@keyframes average-cost-card-lift {
+  0%, 100% { transform: translateY(0); opacity: 0.88; }
+  50% { transform: translateY(-6%); opacity: 1; }
+}
+
+@keyframes average-cost-line-drift {
+  0%, 100% { stroke-dashoffset: 0; transform: translateY(0); }
+  50% { stroke-dashoffset: -42; transform: translateY(-5%); }
+}
+
+@keyframes average-cost-baseline-pulse {
+  0%, 100% { opacity: 0.72; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2%); }
+}
+
+@keyframes average-cost-anomaly-ping {
+  0%, 100% { transform: scale(0.72); opacity: 0.15; }
+  50% { transform: scale(1.08); opacity: 0.72; }
+}
+
+@keyframes average-cost-slider {
+  0%, 100% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(420%) scale(1.15); }
+}
+
+/* poker-flow */
+.poker-flow-motif {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--b) 22%, transparent), transparent 36%),
+    radial-gradient(circle at 18% 78%, color-mix(in srgb, var(--a) 18%, transparent), transparent 34%),
+    linear-gradient(180deg, #050506 0%, #0a0a0d 58%, #060607 100%);
+}
+
+.poker-flow-motif .poker-flow-stats {
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  top: 7%;
+  height: 12%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12%;
+}
+
+.poker-flow-motif .poker-flow-stats div { position: relative; }
+
+.poker-flow-motif .poker-flow-stats i,
+.poker-flow-motif .poker-flow-stats b {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  border-radius: 999px;
+}
+
+.poker-flow-motif .poker-flow-stats i {
+  top: 18%;
+  height: 16%;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.poker-flow-motif .poker-flow-stats b {
+  top: 54%;
+  height: 18%;
+  background: #60A5FA;
+  box-shadow: 0 0 18px rgba(96, 165, 250, 0.46);
+}
+
+.poker-flow-motif .poker-flow-stats b::before {
+  content: '$';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 12%;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 2.6cqw;
+  line-height: 1;
+}
+
+.poker-flow-motif .poker-flow-stats div:nth-child(2) b {
+  background: #4ADE80;
+  box-shadow: 0 0 18px rgba(74, 222, 128, 0.48);
+}
+
+.poker-flow-motif .poker-flow-table {
+  position: absolute;
+  left: 20%;
+  top: 30%;
+  width: 60%;
+  aspect-ratio: 1;
+  animation: poker-flow-table-float 8s ease-in-out infinite;
+}
+
+.poker-flow-motif .poker-flow-ring {
+  position: absolute;
+  border-radius: 999px;
+  inset: 0;
+}
+
+.poker-flow-motif .poker-flow-ring-outer {
+  background: conic-gradient(
+    from 0deg,
+    var(--a) 0deg 100deg,
+    var(--b) 100deg 230deg,
+    color-mix(in srgb, var(--a) 58%, var(--b)) 230deg 360deg
+  );
+  box-shadow: 0 0 46px color-mix(in srgb, var(--b) 34%, transparent);
+  animation: poker-flow-spin 8s linear infinite;
+}
+
+.poker-flow-motif .poker-flow-ring-inner {
+  inset: 22%;
+  background: #050506;
+  box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--a) 48%, var(--b));
+}
+
+.poker-flow-motif .poker-flow-cards {
+  position: absolute;
+  left: 35%;
+  top: 38%;
+  width: 30%;
+  height: 23%;
+  transform: rotate(-10deg);
+}
+
+.poker-flow-motif .poker-flow-cards i {
+  position: absolute;
+  top: 0;
+  width: 44%;
+  height: 100%;
+  border-radius: 10%;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.32);
+}
+
+.poker-flow-motif .poker-flow-cards i:first-child { left: 6%; transform: rotate(-8deg); }
+
+.poker-flow-motif .poker-flow-cards i:last-child {
+  right: 6%;
+  transform: rotate(8deg);
+  background: color-mix(in srgb, var(--a) 32%, white);
+}
+
+.poker-flow-motif .poker-flow-chip {
+  position: absolute;
+  width: 18%;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, transparent 0 32%, rgba(0, 0, 0, 0.18) 33% 42%, transparent 43%),
+    var(--a);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.36);
+  animation: poker-flow-chip-orbit 8s ease-in-out infinite;
+}
+
+.poker-flow-motif .poker-flow-chip-a { left: 4%; top: 36%; }
+
+.poker-flow-motif .poker-flow-chip-b {
+  right: 6%;
+  top: 28%;
+  background:
+    radial-gradient(circle, transparent 0 32%, rgba(0, 0, 0, 0.18) 33% 42%, transparent 43%),
+    var(--b);
+  animation-delay: -2.6s;
+}
+
+@keyframes poker-flow-table-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4%) scale(1.03); }
+}
+
+@keyframes poker-flow-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes poker-flow-chip-orbit {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(18%, -16%) rotate(28deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {

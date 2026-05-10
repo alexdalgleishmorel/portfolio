@@ -1,4 +1,12 @@
-export type MotifKey = 'wave' | 'rings' | 'bars' | 'pulse';
+export type MotifKey =
+  | 'wave'
+  | 'rings'
+  | 'bars'
+  | 'pulse'
+  | 'mortgage'
+  | 'flow-report'
+  | 'average-cost'
+  | 'poker-flow';
 
 export interface ProjectLinks {
   github?: string;
