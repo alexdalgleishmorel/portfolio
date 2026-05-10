@@ -97,6 +97,7 @@ export const App = () => {
                   setDetailIndex(i ?? selected);
                   setDetail(true);
                 }}
+                isDetailOpen={detail}
               />
             )}
             {route === 'about' && <BioPanel />}

@@ -1,11 +1,15 @@
 import { useEffect, useRef } from 'react';
 import type { Project } from '../types';
+import { useReducedMotion } from '../hooks/useReducedMotion';
+
+const AUTO_ADVANCE_MS = 6000;
 
 interface Props {
   projects: Project[];
   selected: number;
   setSelected: (i: number) => void;
   openDetail: (i?: number) => void;
+  isDetailOpen: boolean;
 }
 
 interface DragState {
@@ -17,20 +21,37 @@ interface DragState {
   pid?: number;
 }
 
-export const ProjectsPanel = ({ projects, selected, setSelected, openDetail }: Props) => {
+export const ProjectsPanel = ({
+  projects,
+  selected,
+  setSelected,
+  openDetail,
+  isDetailOpen,
+}: Props) => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const itemsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const dragRef = useRef<DragState>({ down: false, startX: 0, startScroll: 0, dragged: false });
   const lastSelRef = useRef(selected);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const sc = scrollerRef.current;
     const el = itemsRef.current[selected];
     if (!sc || !el) return;
     if (lastSelRef.current === selected) return;
+    const prev = lastSelRef.current;
     lastSelRef.current = selected;
-    sc.scrollTo({ left: el.offsetLeft, behavior: 'smooth' });
+    const isLongJump = Math.abs(selected - prev) > 1;
+    sc.scrollTo({ left: el.offsetLeft, behavior: isLongJump ? 'auto' : 'smooth' });
   }, [selected]);
+
+  useEffect(() => {
+    if (isDetailOpen || reducedMotion || projects.length <= 1) return;
+    const id = window.setTimeout(() => {
+      setSelected((selected + 1) % projects.length);
+    }, AUTO_ADVANCE_MS);
+    return () => window.clearTimeout(id);
+  }, [selected, isDetailOpen, reducedMotion, projects.length, setSelected]);
 
   useEffect(() => {
     const sc = scrollerRef.current;
@@ -95,10 +116,14 @@ export const ProjectsPanel = ({ projects, selected, setSelected, openDetail }: P
   useEffect(() => {
     const sc = scrollerRef.current;
     if (!sc) return;
-    let raf = 0;
+    // Debounce so we only commit a new selection once the scroll-snap
+    // animation has fully settled — otherwise a single swipe can fire
+    // overlapping setSelected calls (A→B→A→B) and re-trigger the screen-fade
+    // mount animation mid-transition, causing a visible flicker.
+    let settleTimer = 0;
     const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
+      if (settleTimer) window.clearTimeout(settleTimer);
+      settleTimer = window.setTimeout(() => {
         const w = sc.clientWidth;
         if (!w) return;
         const i = Math.round(sc.scrollLeft / w);
@@ -107,12 +132,12 @@ export const ProjectsPanel = ({ projects, selected, setSelected, openDetail }: P
           lastSelRef.current = clamped;
           setSelected(clamped);
         }
-      });
+      }, 50);
     };
     sc.addEventListener('scroll', onScroll, { passive: true });
     return () => {
       sc.removeEventListener('scroll', onScroll);
-      cancelAnimationFrame(raf);
+      if (settleTimer) window.clearTimeout(settleTimer);
     };
   }, [selected, setSelected]);
 
@@ -122,8 +147,7 @@ export const ProjectsPanel = ({ projects, selected, setSelected, openDetail }: P
         <button
           className="nav-arrow"
           aria-label="Previous project"
-          disabled={selected === 0}
-          onClick={() => setSelected(Math.max(0, selected - 1))}
+          onClick={() => setSelected((selected - 1 + projects.length) % projects.length)}
         >
           <svg
             viewBox="0 0 24 24"
@@ -165,8 +189,7 @@ export const ProjectsPanel = ({ projects, selected, setSelected, openDetail }: P
         <button
           className="nav-arrow"
           aria-label="Next project"
-          disabled={selected === projects.length - 1}
-          onClick={() => setSelected(Math.min(projects.length - 1, selected + 1))}
+          onClick={() => setSelected((selected + 1) % projects.length)}
         >
           <svg
             viewBox="0 0 24 24"
