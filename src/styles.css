@@ -947,26 +947,6 @@ body {
   animation: flow-report-temperature 8s ease-in-out infinite;
 }
 
-.flow-report-motif .flow-report-marker {
-  position: absolute;
-  bottom: 4%;
-  width: 6%;
-  height: 7%;
-  border-radius: 999px;
-  background: var(--a);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--a) 60%, transparent);
-  animation: flow-report-marker 8s ease-in-out infinite;
-}
-
-.flow-report-motif .flow-report-marker-a { left: 22%; }
-
-.flow-report-motif .flow-report-marker-b {
-  left: 83%;
-  background: var(--b);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--b) 60%, transparent);
-  animation-delay: -4s;
-}
-
 @keyframes flow-report-panel-glow {
   0%, 100% { border-color: rgba(210, 218, 228, 0.5); transform: translateY(0); }
   50% { border-color: color-mix(in srgb, var(--b) 72%, rgba(210, 218, 228, 0.5)); transform: translateY(-2%); }
@@ -985,11 +965,6 @@ body {
 @keyframes flow-report-temperature {
   0%, 100% { stroke-dashoffset: 0; transform: translateY(0); opacity: 0.64; }
   50% { stroke-dashoffset: -36; transform: translateY(-4%); opacity: 0.9; }
-}
-
-@keyframes flow-report-marker {
-  0%, 100% { transform: translateY(0) scaleX(1); opacity: 0.9; }
-  50% { transform: translateY(-12%) scaleX(1.35); opacity: 1; }
 }
 
 /* average-cost */

@@ -32,9 +32,6 @@ export const FlowReport = ({ accent, accent2 }: MotifProps) => (
       <svg className="flow-report-temp" viewBox="0 0 100 100" preserveAspectRatio="none">
         <path d="M 3 62 C 12 64, 21 61, 28 66 S 40 49, 48 42 S 62 31, 71 36 S 82 59, 97 62" />
       </svg>
-
-      <div className="flow-report-marker flow-report-marker-a" />
-      <div className="flow-report-marker flow-report-marker-b" />
     </div>
   </div>
 );

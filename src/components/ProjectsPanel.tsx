@@ -21,6 +21,13 @@ interface DragState {
   pid?: number;
 }
 
+interface CarouselItem {
+  project: Project;
+  realIdx: number;
+  isClone: boolean;
+  key: string;
+}
+
 export const ProjectsPanel = ({
   projects,
   selected,
@@ -34,16 +41,52 @@ export const ProjectsPanel = ({
   const lastSelRef = useRef(selected);
   const reducedMotion = useReducedMotion();
 
+  // To support native swipe wrap-around we render N+2 items: a clone of the
+  // last project at the start and a clone of the first at the end. Real
+  // project i lives at scroller index i+1; the clones at 0 and N+1 are
+  // intercepted on settle and replaced with an instant scrollLeft jump to
+  // the matching real item, giving the visual feel of an infinite carousel.
+  const hasClones = projects.length > 1;
+  const items: CarouselItem[] = hasClones
+    ? [
+        {
+          project: projects[projects.length - 1],
+          realIdx: projects.length - 1,
+          isClone: true,
+          key: 'clone-leading',
+        },
+        ...projects.map((p, i) => ({
+          project: p,
+          realIdx: i,
+          isClone: false,
+          key: p.id,
+        })),
+        { project: projects[0], realIdx: 0, isClone: true, key: 'clone-trailing' },
+      ]
+    : projects.map((p, i) => ({ project: p, realIdx: i, isClone: false, key: p.id }));
+
+  const realToScroller = (real: number) => (hasClones ? real + 1 : real);
+
+  // Mount-only: if we have clones, snap initial scrollLeft past the leading
+  // clone so the user starts on the actual selected project, not the clone.
+  useEffect(() => {
+    if (!hasClones) return;
+    const sc = scrollerRef.current;
+    const el = itemsRef.current[realToScroller(selected)];
+    if (sc && el) sc.scrollLeft = el.offsetLeft;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     const sc = scrollerRef.current;
-    const el = itemsRef.current[selected];
+    const el = itemsRef.current[realToScroller(selected)];
     if (!sc || !el) return;
     if (lastSelRef.current === selected) return;
     const prev = lastSelRef.current;
     lastSelRef.current = selected;
     const isLongJump = Math.abs(selected - prev) > 1;
     sc.scrollTo({ left: el.offsetLeft, behavior: isLongJump ? 'auto' : 'smooth' });
-  }, [selected]);
+  }, [selected, hasClones]);
 
   useEffect(() => {
     if (isDetailOpen || reducedMotion || projects.length <= 1) return;
@@ -126,8 +169,36 @@ export const ProjectsPanel = ({
       settleTimer = window.setTimeout(() => {
         const w = sc.clientWidth;
         if (!w) return;
-        const i = Math.round(sc.scrollLeft / w);
-        const clamped = Math.max(0, Math.min(itemsRef.current.length - 1, i));
+        const total = itemsRef.current.length;
+        const scrollerIdx = Math.max(
+          0,
+          Math.min(total - 1, Math.round(sc.scrollLeft / w)),
+        );
+
+        // Wrap detection: if we landed on a clone, jump scroll to the
+        // matching real item without animation, then update selected.
+        if (hasClones && scrollerIdx === 0) {
+          const realLastEl = itemsRef.current[total - 2];
+          if (realLastEl) sc.scrollLeft = realLastEl.offsetLeft;
+          const realIdx = projects.length - 1;
+          if (realIdx !== selected) {
+            lastSelRef.current = realIdx;
+            setSelected(realIdx);
+          }
+          return;
+        }
+        if (hasClones && scrollerIdx === total - 1) {
+          const realFirstEl = itemsRef.current[1];
+          if (realFirstEl) sc.scrollLeft = realFirstEl.offsetLeft;
+          if (selected !== 0) {
+            lastSelRef.current = 0;
+            setSelected(0);
+          }
+          return;
+        }
+
+        const realIdx = hasClones ? scrollerIdx - 1 : scrollerIdx;
+        const clamped = Math.max(0, Math.min(projects.length - 1, realIdx));
         if (clamped !== selected) {
           lastSelRef.current = clamped;
           setSelected(clamped);
@@ -139,7 +210,7 @@ export const ProjectsPanel = ({
       sc.removeEventListener('scroll', onScroll);
       if (settleTimer) window.clearTimeout(settleTimer);
     };
-  }, [selected, setSelected]);
+  }, [selected, setSelected, projects.length, hasClones]);
 
   return (
     <div className="panel glass projects-panel">
@@ -164,23 +235,26 @@ export const ProjectsPanel = ({
         </button>
         <div className="proj-scroller" ref={scrollerRef}>
           <div className="proj-scroller-inner">
-            {projects.map((p, i) => (
+            {items.map((item, idx) => (
               <button
-                key={p.id}
+                key={item.key}
                 ref={(el) => {
-                  itemsRef.current[i] = el;
+                  itemsRef.current[idx] = el;
                 }}
-                className={`proj-item ${i === selected ? 'active' : ''}`}
+                className={`proj-item ${
+                  !item.isClone && item.realIdx === selected ? 'active' : ''
+                }`}
+                aria-hidden={item.isClone}
                 onClick={(e) => {
                   if (dragRef.current.dragged) {
                     e.preventDefault();
                     return;
                   }
-                  setSelected(i);
-                  openDetail(i);
+                  setSelected(item.realIdx);
+                  openDetail(item.realIdx);
                 }}
               >
-                <div className="proj-name">{p.name}</div>
+                <div className="proj-name">{item.project.name}</div>
                 <div className="proj-tags">CLICK TO LEARN MORE</div>
               </button>
             ))}
