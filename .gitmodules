@@ -1,3 +1,0 @@
-[submodule "website/src/app/submodules/average-cost"]
-	path = website/src/app/submodules/average-cost
-	url = git@github.com:alexdalgleishmorel/average-cost-app.git
