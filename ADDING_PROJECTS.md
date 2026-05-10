@@ -119,13 +119,12 @@ Append a new object to the `projects` array in [src/data/projects.ts](src/data/p
 export interface Project {
   id: string;            // unique kebab-case slug — used as React key
   name: string;          // display name shown on the laptop screen
-  headline: string;      // one-line tagline shown under the name
+  headline: string;      // one-line tagline shown in the detail modal
   description: string;   // longer paragraph, shown in the detail modal
-  tags: string[];        // tech stack chips (e.g. ['React', 'TypeScript'])
   links: {               // all optional — only the buttons you set will render
     github?: string;
-    demo?: string;
-    try?: string;
+    demo?: string;       // demo video link
+    try?: string;        // live app link
   };
   accent: string;        // primary hex color, e.g. '#F0A36B'
   accent2: string;       // secondary hex color, e.g. '#7A4FE0'

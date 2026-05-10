@@ -19,7 +19,6 @@ export interface Project {
   name: string;
   headline: string;
   description: string;
-  tags: string[];
   links: ProjectLinks;
   accent: string;
   accent2: string;

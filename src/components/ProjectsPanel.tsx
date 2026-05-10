@@ -157,7 +157,7 @@ export const ProjectsPanel = ({ projects, selected, setSelected, openDetail }: P
                 }}
               >
                 <div className="proj-name">{p.name}</div>
-                <div className="proj-tags">{p.tags.join(' · ').toUpperCase()}</div>
+                <div className="proj-tags">CLICK TO LEARN MORE</div>
               </button>
             ))}
           </div>
