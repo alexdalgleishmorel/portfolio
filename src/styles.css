@@ -1,6 +1,12 @@
 /* ──────────────────────────────────────── base */
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; margin: 0; padding: 0; }
+html {
+  /* Safety-net dark color so iOS Safari's safe-area / dynamic URL-bar gaps
+     never reveal the default white. Matches the body gradient's end stop. */
+  background-color: #09090e;
+  overscroll-behavior: none;
+}
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   /* Dusk gradient sampled from the scene edges — fills letterbox space when
@@ -15,6 +21,7 @@ body {
   color: #fff;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
+  overscroll-behavior: none;
   letter-spacing: 0.005em;
 }
 
@@ -41,7 +48,8 @@ body {
 /* ──────────────────────────────────────── stage (aspect-locked) */
 .app, .stage-wrap {
   width: 100vw;
-  height: 100vh;
+  height: 100vh;       /* fallback for older browsers */
+  height: 100dvh;      /* tracks iOS Safari URL-bar collapse/expand */
   position: relative;
   background: transparent;
   overflow: hidden;
