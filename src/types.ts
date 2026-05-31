@@ -6,7 +6,8 @@ export type MotifKey =
   | 'mortgage'
   | 'flow-report'
   | 'average-cost'
-  | 'poker-flow';
+  | 'poker-flow'
+  | 'expense-visualizer';
 
 export interface ProjectLinks {
   github?: string;

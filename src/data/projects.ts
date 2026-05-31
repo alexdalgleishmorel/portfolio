@@ -2,6 +2,22 @@ import type { Project } from '../types';
 
 export const projects: Project[] = [
   {
+    id: 'expense-visualizer',
+    name: 'Expense Visualizer',
+    headline:
+      'Where is my money actually going? What will I spend next month?',
+    description:
+      'This AI-powered expense tracker lets you import statements, auto-categorize spending, build dashboards, and just ask questions about your money in plain language.',
+    links: {
+      github: 'https://github.com/alexdalgleishmorel/budget-trace',
+      demo: 'https://www.youtube.com/watch?v=CJE12_HOLzs',
+      try: 'https://alexdalgleishmorel.github.io/budget-trace/',
+    },
+    accent: '#38BDF8',
+    accent2: '#2DD4BF',
+    motif: 'expense-visualizer',
+  },
+  {
     id: 'mortgage',
     name: 'Mortgage Visualization App',
     headline:

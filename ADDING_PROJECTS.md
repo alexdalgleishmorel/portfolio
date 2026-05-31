@@ -6,7 +6,7 @@ Every project on the site has two pieces: a **data entry** in [src/data/projects
 
 1. **Generate the animation** — paste the [system prompt](#step-1-generate-the-animation-via-chatgpt) into ChatGPT (with vision), then send the per-project follow-up + a screenshot of your app. ChatGPT returns a `.tsx` and a `.css` block.
 2. **Wire it in** — drop the `.tsx` into [src/motifs/](src/motifs/), append the CSS to [src/styles.css](src/styles.css), register the component, extend the `MotifKey` union.
-3. **Add the project** — append a typed entry to [src/data/projects.ts](src/data/projects.ts) pointing at the new motif key.
+3. **Add the project** — add a typed entry to the **top** of [src/data/projects.ts](src/data/projects.ts) pointing at the new motif key. Newest projects go first so they lead the carousel.
 
 Then `npm run dev` to verify, `npm run build`, commit + push to `main` to deploy.
 
@@ -113,7 +113,7 @@ Given ChatGPT's two artifacts:
 
 ## Step 3 — Add the project entry
 
-Append a new object to the `projects` array in [src/data/projects.ts](src/data/projects.ts). The shape (defined in [src/types.ts](src/types.ts)) is:
+Add a new object to the **top** of the `projects` array in [src/data/projects.ts](src/data/projects.ts) — the carousel renders in array order, and newest projects should appear first. The shape (defined in [src/types.ts](src/types.ts)) is:
 
 ```ts
 export interface Project {

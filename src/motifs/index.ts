@@ -8,6 +8,7 @@ import { Mortgage } from './Mortgage';
 import { FlowReport } from './FlowReport';
 import { AverageCost } from './AverageCost';
 import { PokerFlow } from './PokerFlow';
+import { ExpenseVisualizer } from './ExpenseVisualizer';
 
 export interface MotifProps {
   accent: string;
@@ -23,4 +24,5 @@ export const motifs: Record<MotifKey, ComponentType<MotifProps>> = {
   'flow-report': FlowReport,
   'average-cost': AverageCost,
   'poker-flow': PokerFlow,
+  'expense-visualizer': ExpenseVisualizer,
 };
